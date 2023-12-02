@@ -46,4 +46,48 @@ public static class SecondStar
 
         return sum;
     }
+
+    public static int UsingSpans(string[] input)
+    {
+        var sum = 0;
+        foreach (var line in input)
+        {
+            var lineAsSpan = line.AsSpan();
+            var firstDigit = -1;
+            var lastDigit = 0;
+            for (int i = 0; i < lineAsSpan.Length; i++)
+            {
+                var character = lineAsSpan[i];
+                var digit = character - '0';
+                if (digit is < 0 or > 9)
+                {
+                    var substring = lineAsSpan[..(i + 1)];
+                    for (int j = 0; j < DigitsSpelled.Length; j++)
+                    {
+                        if (substring.EndsWith(DigitsSpelled[j], StringComparison.InvariantCulture))
+                        {
+                            digit = j + 1;
+                            break;
+                        }
+                    }
+
+                    if (digit is < 0 or > 9)
+                    {
+                        continue;
+                    }
+                }
+
+                if (firstDigit == -1)
+                {
+                    firstDigit = digit;
+                }
+
+                lastDigit = digit;
+            }
+
+            sum += (firstDigit * 10) + lastDigit;
+        }
+
+        return sum;
+    }
 }

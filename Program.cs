@@ -2,4 +2,4 @@
 
 using BenchmarkDotNet.Running;
 
-BenchmarkRunner.Run<FirstStar>();
+BenchmarkRunner.Run<SecondStar>();
