@@ -1,6 +1,6 @@
 using BenchmarkDotNet.Attributes;
 
-namespace AdventOfCode.Benchmarks.Day1;
+namespace AdventOfCode2023.Benchmarks.Day1;
 
 [MemoryDiagnoser]
 public class FirstStar

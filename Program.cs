@@ -1,4 +1,4 @@
-﻿using AdventOfCode.Benchmarks.Day1;
+﻿using AdventOfCode2023.Benchmarks.Day1;
 
 using BenchmarkDotNet.Running;
 

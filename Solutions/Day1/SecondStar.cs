@@ -1,4 +1,4 @@
-namespace AdventOfCode.Solutions.Day1;
+namespace AdventOfCode2023.Solutions.Day1;
 
 public static class SecondStar
 {
