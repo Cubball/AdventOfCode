@@ -2,7 +2,7 @@ namespace AdventOfCode2023.Solutions.Day1;
 
 public static class FirstStar
 {
-    public static int Initial(string[] input)
+    public static int Naive(string[] input)
     {
         var sum = 0;
         foreach (var line in input)
@@ -68,7 +68,7 @@ public static class FirstStar
         return sum;
     }
 
-    public static int InitialUsingSpans(string[] input)
+    public static int NaiveUsingSpans(string[] input)
     {
         var sum = 0;
         var inputAsSpan = input.AsSpan();

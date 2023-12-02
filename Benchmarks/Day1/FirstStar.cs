@@ -14,9 +14,9 @@ public class FirstStar
     }
 
     [Benchmark]
-    public void Initial()
+    public void Naive()
     {
-        Solutions.Day1.FirstStar.Initial(_input);
+        Solutions.Day1.FirstStar.Naive(_input);
     }
 
     [Benchmark]
@@ -26,9 +26,9 @@ public class FirstStar
     }
 
     [Benchmark]
-    public void InitialUsingSpans()
+    public void NaiveUsingSpans()
     {
-        Solutions.Day1.FirstStar.InitialUsingSpans(_input);
+        Solutions.Day1.FirstStar.NaiveUsingSpans(_input);
     }
 
     [Benchmark]

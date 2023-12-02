@@ -14,9 +14,9 @@ public class SecondStar
     }
 
     [Benchmark]
-    public void Initial()
+    public void Naive()
     {
-        Solutions.Day1.SecondStar.Initial(_input);
+        Solutions.Day1.SecondStar.Naive(_input);
     }
 
     [Benchmark]
