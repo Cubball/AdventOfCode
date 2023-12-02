@@ -26,14 +26,8 @@ public class FirstStar
     }
 
     [Benchmark]
-    public void NaiveUsingSpans()
+    public void UsingSearchValues()
     {
-        Solutions.Day1.FirstStar.NaiveUsingSpans(_input);
-    }
-
-    [Benchmark]
-    public void BetterApproachUsingSpans()
-    {
-        Solutions.Day1.FirstStar.BetterApproachUsingSpans(_input);
+        Solutions.Day1.FirstStar.UsingSearchValues(_input);
     }
 }

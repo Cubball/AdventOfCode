@@ -1,7 +1,11 @@
+using System.Buffers;
+
 namespace AdventOfCode2023.Solutions.Day1;
 
 public static class FirstStar
 {
+    private static readonly SearchValues<char> DigitSearchValues = SearchValues.Create("123456789");
+
     public static int Naive(string[] input)
     {
         var sum = 0;
@@ -68,70 +72,16 @@ public static class FirstStar
         return sum;
     }
 
-    public static int NaiveUsingSpans(string[] input)
+    public static int UsingSearchValues(string[] input)
     {
         var sum = 0;
-        var inputAsSpan = input.AsSpan();
-        foreach (var line in inputAsSpan)
+        foreach (var line in input)
         {
-            var firstDigit = -1;
-            var lastDigit = 0;
             var lineAsSpan = line.AsSpan();
-            foreach (var character in lineAsSpan)
-            {
-                if (character is < '0' or > '9')
-                {
-                    continue;
-                }
-
-                var digit = character - '0';
-                if (firstDigit == -1)
-                {
-                    firstDigit = digit;
-                }
-
-                lastDigit = digit;
-            }
-
-            sum += (firstDigit * 10) + lastDigit;
-        }
-
-        return sum;
-    }
-
-    public static int BetterApproachUsingSpans(string[] input)
-    {
-        var sum = 0;
-        var inputAsSpan = input.AsSpan();
-        foreach (var lineAsString in inputAsSpan)
-        {
-            var line = lineAsString.AsSpan();
-            var firstDigit = 0;
-            for (int j = 0; j < line.Length; j++)
-            {
-                var character = line[j];
-                if (character is < '0' or > '9')
-                {
-                    continue;
-                }
-
-                firstDigit = character - '0';
-                break;
-            }
-
-            var lastDigit = 0;
-            for (int j = line.Length - 1; j >= 0; j--)
-            {
-                var character = line[j];
-                if (character is < '0' or > '9')
-                {
-                    continue;
-                }
-
-                lastDigit = character - '0';
-                break;
-            }
-
+            var firstDigitIndex = lineAsSpan.IndexOfAny(DigitSearchValues);
+            var firstDigit = lineAsSpan[firstDigitIndex] - '0';
+            var lastDigitIndex = lineAsSpan.LastIndexOfAny(DigitSearchValues);
+            var lastDigit = lineAsSpan[lastDigitIndex] - '0';
             sum += (firstDigit * 10) + lastDigit;
         }
 
