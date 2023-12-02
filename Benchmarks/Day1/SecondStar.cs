@@ -24,4 +24,10 @@ public class SecondStar
     {
         Solutions.Day1.SecondStar.UsingSpans(_input);
     }
+
+    [Benchmark]
+    public void UsingCustomComparison()
+    {
+        Solutions.Day1.SecondStar.UsingCustomComparison(_input);
+    }
 }
