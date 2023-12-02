@@ -1,8 +1,9 @@
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace AdventOfCode2023.Solutions.Day2;
 
-public static class SecondStar
+public static partial class SecondStar
 {
     public static int Naive(string[] input)
     {
@@ -117,4 +118,53 @@ public static class SecondStar
 
         return sum;
     }
+
+    public static int UsingRegex(string[] input)
+    {
+        var sum = 0;
+        var regex = CubesRegex();
+        foreach (var line in input)
+        {
+            var match = regex.Match(line);
+            var gameId = int.Parse(match.Groups[1].ValueSpan, CultureInfo.InvariantCulture);
+            var counts = match.Groups[2];
+            var colors = match.Groups[3];
+            var minRedCount = 0;
+            var minGreenCount = 0;
+            var minBlueCount = 0;
+            for (int i = 0; i < counts.Captures.Count; i++)
+            {
+                var count = int.Parse(counts.Captures[i].ValueSpan, CultureInfo.InvariantCulture);
+                var colorFirstChar = colors.Captures[i].Value[0];
+                if (colorFirstChar == 'r')
+                {
+                    if (minRedCount < count)
+                    {
+                        minRedCount = count;
+                    }
+                }
+                else if (colorFirstChar == 'g')
+                {
+                    if (minGreenCount < count)
+                    {
+                        minGreenCount = count;
+                    }
+                }
+                else
+                {
+                    if (minBlueCount < count)
+                    {
+                        minBlueCount = count;
+                    }
+                }
+            }
+
+            sum += minRedCount * minGreenCount * minBlueCount;
+        }
+
+        return sum;
+    }
+
+    [GeneratedRegex(@"Game (\d+): (?:(?:(\d+) (red|green|blue)(?:, )?)+(?:; )?)+")]
+    private static partial Regex CubesRegex();
 }

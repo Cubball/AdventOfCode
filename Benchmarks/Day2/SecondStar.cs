@@ -24,4 +24,10 @@ public class SecondStar
     {
         Solutions.Day2.SecondStar.UsingSpans(_input);
     }
+
+    [Benchmark]
+    public void UsingRegex()
+    {
+        Solutions.Day2.SecondStar.UsingRegex(_input);
+    }
 }
