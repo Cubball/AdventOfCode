@@ -2,7 +2,7 @@ using System.Globalization;
 
 namespace AdventOfCode2023.Solutions.Day2;
 
-public static class FirstStar
+public static class SecondStar
 {
     public static int Naive(string[] input)
     {
@@ -10,9 +10,10 @@ public static class FirstStar
         foreach (var line in input)
         {
             var colonIndex = line.IndexOf(':');
-            var gameId = int.Parse(line[5..colonIndex], CultureInfo.InvariantCulture);
             var sets = line[(colonIndex + 1)..].Split(';', StringSplitOptions.TrimEntries);
-            var gameIsPossible = true;
+            var minRedCount = 0;
+            var minGreenCount = 0;
+            var minBlueCount = 0;
             foreach (var set in sets)
             {
                 var cubesInfo = set.Split(',', StringSplitOptions.TrimEntries);
@@ -21,19 +22,31 @@ public static class FirstStar
                     var spaceIndex = cubeInfo.IndexOf(' ');
                     var cubesCount = int.Parse(cubeInfo[..spaceIndex], CultureInfo.InvariantCulture);
                     var colorFirstChar = cubeInfo[spaceIndex + 1];
-                    if ((colorFirstChar == 'r' && cubesCount > 12) ||
-                        (colorFirstChar == 'g' && cubesCount > 13) ||
-                        (colorFirstChar == 'b' && cubesCount > 14))
+                    if (colorFirstChar == 'r')
                     {
-                        gameIsPossible = false;
+                        if (minRedCount < cubesCount)
+                        {
+                            minRedCount = cubesCount;
+                        }
+                    }
+                    else if (colorFirstChar == 'g')
+                    {
+                        if (minGreenCount < cubesCount)
+                        {
+                            minGreenCount = cubesCount;
+                        }
+                    }
+                    else
+                    {
+                        if (minBlueCount < cubesCount)
+                        {
+                            minBlueCount = cubesCount;
+                        }
                     }
                 }
             }
 
-            if (gameIsPossible)
-            {
-                sum += gameId;
-            }
+            sum += minRedCount * minGreenCount * minBlueCount;
         }
 
         return sum;
@@ -42,13 +55,14 @@ public static class FirstStar
     public static int UsingSpans(string[] input)
     {
         var sum = 0;
-        var gameId = 1;
         foreach (var line in input)
         {
             var lineAsSpan = line.AsSpan();
             var colonIndex = lineAsSpan.IndexOf(':');
             var sets = lineAsSpan[(colonIndex + 2)..];
-            var gameIsPossible = true;
+            var minRedCount = 0;
+            var minGreenCount = 0;
+            var minBlueCount = 0;
             while (true)
             {
                 var semicolonIndex = sets.IndexOf(';');
@@ -60,11 +74,26 @@ public static class FirstStar
                     var spaceIndex = slice.IndexOf(' ');
                     var cubesCount = int.Parse(slice[..spaceIndex], CultureInfo.InvariantCulture);
                     var colorFirstChar = slice[spaceIndex + 1];
-                    if ((colorFirstChar == 'r' && cubesCount > 12) ||
-                        (colorFirstChar == 'g' && cubesCount > 13) ||
-                        (colorFirstChar == 'b' && cubesCount > 14))
+                    if (colorFirstChar == 'r')
                     {
-                        gameIsPossible = false;
+                        if (minRedCount < cubesCount)
+                        {
+                            minRedCount = cubesCount;
+                        }
+                    }
+                    else if (colorFirstChar == 'g')
+                    {
+                        if (minGreenCount < cubesCount)
+                        {
+                            minGreenCount = cubesCount;
+                        }
+                    }
+                    else
+                    {
+                        if (minBlueCount < cubesCount)
+                        {
+                            minBlueCount = cubesCount;
+                        }
                     }
 
                     if (commaIndex == -1)
@@ -83,12 +112,7 @@ public static class FirstStar
                 sets = sets[(semicolonIndex + 2)..];
             }
 
-            if (gameIsPossible)
-            {
-                sum += gameId;
-            }
-
-            gameId++;
+            sum += minRedCount * minGreenCount * minBlueCount;
         }
 
         return sum;

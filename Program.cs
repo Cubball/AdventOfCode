@@ -1,4 +1,9 @@
-﻿using AdventOfCode2023.Solutions.Day2;
+﻿using AdventOfCode2023.Benchmarks.Day2;
 
-var input = File.ReadAllLines(@"Inputs\Day2.txt");
-Console.WriteLine(FirstStar.Naive(input));
+using BenchmarkDotNet.Running;
+
+// var input = File.ReadAllLines(@"Inputs\Day2.txt");
+// Console.WriteLine(SecondStar.Naive(input));
+// Console.WriteLine(SecondStar.UsingSpans(input));
+
+BenchmarkRunner.Run<FirstStar>();
