@@ -26,7 +26,13 @@ public static class FirstStar
                         (colorFirstChar == 'b' && cubesCount > 14))
                     {
                         gameIsPossible = false;
+                        break;
                     }
+                }
+
+                if (!gameIsPossible)
+                {
+                    break;
                 }
             }
 
@@ -65,6 +71,7 @@ public static class FirstStar
                         (colorFirstChar == 'b' && cubesCount > 14))
                     {
                         gameIsPossible = false;
+                        break;
                     }
 
                     if (commaIndex == -1)
@@ -75,7 +82,7 @@ public static class FirstStar
                     set = set[(commaIndex + 2)..];
                 }
 
-                if (semicolonIndex == -1)
+                if (semicolonIndex == -1 || !gameIsPossible)
                 {
                     break;
                 }
