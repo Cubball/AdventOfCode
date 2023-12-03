@@ -3,7 +3,6 @@
 using BenchmarkDotNet.Running;
 
 var input = File.ReadAllLines(@"Inputs\Day3.txt");
-Console.WriteLine(FirstStar.UsingSpans(input));
-Console.WriteLine(FirstStar.UsingRegex(input));
+Console.WriteLine(SecondStar.UsingSpans(input));
 
-// BenchmarkRunner.Run<FirstStar>();
+// BenchmarkRunner.Run<SecondStar>();
