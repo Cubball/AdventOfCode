@@ -1,14 +1,9 @@
-﻿using AdventOfCode2023.Benchmarks.Day2;
+﻿using AdventOfCode2023.Solutions.Day3;
 
 using BenchmarkDotNet.Running;
 
-// var input = File.ReadAllLines(@"Inputs\Day2.txt");
-// Console.WriteLine(FirstStar.Naive(input));
-// Console.WriteLine(FirstStar.UsingSpans(input));
-// Console.WriteLine(FirstStar.UsingRegex(input));
-// Console.WriteLine(SecondStar.Naive(input));
-// Console.WriteLine(SecondStar.BetterApproach(input));
-// Console.WriteLine(SecondStar.UsingSpans(input));
-// Console.WriteLine(SecondStar.UsingRegex(input));
+var input = File.ReadAllLines(@"Inputs\Day3.txt");
+Console.WriteLine(FirstStar.UsingSpans(input));
+Console.WriteLine(FirstStar.UsingRegex(input));
 
-BenchmarkRunner.Run<SecondStar>();
+// BenchmarkRunner.Run<FirstStar>();
