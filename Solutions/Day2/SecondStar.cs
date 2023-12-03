@@ -5,6 +5,8 @@ namespace AdventOfCode2023.Solutions.Day2;
 
 public static partial class SecondStar
 {
+    private static readonly char[] Separators = new[] { ' ', ':', ';', ',' };
+
     public static int Naive(string[] input)
     {
         var sum = 0;
@@ -53,64 +55,93 @@ public static partial class SecondStar
         return sum;
     }
 
+    public static int BetterApproach(string[] input)
+    {
+        var sum = 0;
+        foreach (var line in input)
+        {
+            var parts = line.Split(Separators, StringSplitOptions.RemoveEmptyEntries);
+            var minRedCount = 0;
+            var minGreenCount = 0;
+            var minBlueCount = 0;
+            for (int i = 2; i < parts.Length - 1; i += 2)
+            {
+                var count = int.Parse(parts[i], CultureInfo.InvariantCulture);
+                var colorFirstChar = parts[i + 1][0];
+                if (colorFirstChar == 'r')
+                {
+                    if (minRedCount < count)
+                    {
+                        minRedCount = count;
+                    }
+                }
+                else if (colorFirstChar == 'g')
+                {
+                    if (minGreenCount < count)
+                    {
+                        minGreenCount = count;
+                    }
+                }
+                else
+                {
+                    if (minBlueCount < count)
+                    {
+                        minBlueCount = count;
+                    }
+                }
+            }
+
+            sum += minRedCount * minGreenCount * minBlueCount;
+        }
+
+        return sum;
+    }
+
     public static int UsingSpans(string[] input)
     {
         var sum = 0;
         foreach (var line in input)
         {
-            var lineAsSpan = line.AsSpan();
-            var colonIndex = lineAsSpan.IndexOf(':');
-            var sets = lineAsSpan[(colonIndex + 2)..];
             var minRedCount = 0;
             var minGreenCount = 0;
             var minBlueCount = 0;
+            var lineAsSpan = line.AsSpan();
+            var colonIndex = lineAsSpan.IndexOf(':');
+            lineAsSpan = lineAsSpan[(colonIndex + 2)..];
             while (true)
             {
-                var semicolonIndex = sets.IndexOf(';');
-                var set = semicolonIndex == -1 ? sets : sets[..semicolonIndex];
-                while (true)
+                var separatorIndex = lineAsSpan.IndexOfAny(",;");
+                var spaceIndex = lineAsSpan.IndexOf(' ');
+                var count = int.Parse(lineAsSpan[..spaceIndex], CultureInfo.InvariantCulture);
+                var colorFirstChar = lineAsSpan[spaceIndex + 1];
+                if (colorFirstChar == 'r')
                 {
-                    var commaIndex = set.IndexOf(',');
-                    var slice = commaIndex == -1 ? set : set[..commaIndex];
-                    var spaceIndex = slice.IndexOf(' ');
-                    var cubesCount = int.Parse(slice[..spaceIndex], CultureInfo.InvariantCulture);
-                    var colorFirstChar = slice[spaceIndex + 1];
-                    if (colorFirstChar == 'r')
+                    if (minRedCount < count)
                     {
-                        if (minRedCount < cubesCount)
-                        {
-                            minRedCount = cubesCount;
-                        }
+                        minRedCount = count;
                     }
-                    else if (colorFirstChar == 'g')
+                }
+                else if (colorFirstChar == 'g')
+                {
+                    if (minGreenCount < count)
                     {
-                        if (minGreenCount < cubesCount)
-                        {
-                            minGreenCount = cubesCount;
-                        }
+                        minGreenCount = count;
                     }
-                    else
+                }
+                else
+                {
+                    if (minBlueCount < count)
                     {
-                        if (minBlueCount < cubesCount)
-                        {
-                            minBlueCount = cubesCount;
-                        }
+                        minBlueCount = count;
                     }
-
-                    if (commaIndex == -1)
-                    {
-                        break;
-                    }
-
-                    set = set[(commaIndex + 2)..];
                 }
 
-                if (semicolonIndex == -1)
+                if (separatorIndex == -1)
                 {
                     break;
                 }
 
-                sets = sets[(semicolonIndex + 2)..];
+                lineAsSpan = lineAsSpan[(separatorIndex + 2)..];
             }
 
             sum += minRedCount * minGreenCount * minBlueCount;
@@ -165,6 +196,6 @@ public static partial class SecondStar
         return sum;
     }
 
-    [GeneratedRegex(@"Game (\d+): (?:(?:(\d+) (red|green|blue)(?:, )?)+(?:; )?)+")]
+    [GeneratedRegex(@"Game (\d+): (?:(\d+) (red|green|blue)(?:[,;] )?)+")]
     private static partial Regex CubesRegex();
 }

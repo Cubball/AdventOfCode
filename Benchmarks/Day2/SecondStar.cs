@@ -20,6 +20,12 @@ public class SecondStar
     }
 
     [Benchmark]
+    public void BetterApproach()
+    {
+        Solutions.Day2.SecondStar.BetterApproach(_input);
+    }
+
+    [Benchmark]
     public void UsingSpans()
     {
         Solutions.Day2.SecondStar.UsingSpans(_input);
