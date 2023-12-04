@@ -13,8 +13,7 @@ public static class FirstStar
             var winningNumbersString = parts[1];
             var myNumbersString = parts[2];
             var matchingNumbersCount = winningNumbersString.Split(' ', StringSplitOptions.RemoveEmptyEntries)
-                                                           .Select(int.Parse)
-                                                           .Intersect(myNumbersString.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse))
+                                                           .Intersect(myNumbersString.Split(' ', StringSplitOptions.RemoveEmptyEntries))
                                                            .Count();
             if (matchingNumbersCount > 0)
             {

@@ -14,8 +14,7 @@ public static class SecondStar
             var winningNumbersString = parts[1];
             var myNumbersString = parts[2];
             var matchingNumbersCount = winningNumbersString.Split(' ', StringSplitOptions.RemoveEmptyEntries)
-                                                           .Select(int.Parse)
-                                                           .Intersect(myNumbersString.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse))
+                                                           .Intersect(myNumbersString.Split(' ', StringSplitOptions.RemoveEmptyEntries))
                                                            .Count();
             for (int i = 0; i < matchingNumbersCount; i++)
             {
