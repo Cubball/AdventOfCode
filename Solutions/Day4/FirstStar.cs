@@ -24,4 +24,12 @@ public static class FirstStar
 
         return sum;
     }
+
+    public static int LINQ(string[] input) =>
+        input.Select(l => l.Split(Separators, StringSplitOptions.TrimEntries))
+             .Select(p => p[1].Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                              .Intersect(p[2].Split(' ', StringSplitOptions.RemoveEmptyEntries))
+                              .Count())
+             .Where(n => n > 0)
+             .Sum(n => (int)Math.Pow(2, n - 1));
 }
