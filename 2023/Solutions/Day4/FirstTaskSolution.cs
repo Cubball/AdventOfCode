@@ -1,13 +1,12 @@
 namespace AdventOfCode2023.Solutions.Day4;
 
-public static class SecondStar
+public static class FirstTaskSolution
 {
     private static readonly char[] Separators = new[] { ':', '|' };
 
     public static int Simple(string[] input)
     {
-        var numberOfInstances = input.Select(_ => 1).ToArray();
-        var cardNumber = 1;
+        var sum = 0;
         foreach (var line in input)
         {
             var parts = line.Split(Separators, StringSplitOptions.TrimEntries);
@@ -16,14 +15,20 @@ public static class SecondStar
             var matchingNumbersCount = winningNumbersString.Split(' ', StringSplitOptions.RemoveEmptyEntries)
                                                            .Intersect(myNumbersString.Split(' ', StringSplitOptions.RemoveEmptyEntries))
                                                            .Count();
-            for (int i = 0; i < matchingNumbersCount; i++)
+            if (matchingNumbersCount > 0)
             {
-                numberOfInstances[cardNumber + i] += numberOfInstances[cardNumber - 1];
+                sum += (int)Math.Pow(2, matchingNumbersCount - 1);
             }
-
-            cardNumber++;
         }
 
-        return numberOfInstances.Sum();
+        return sum;
     }
+
+    public static int LINQ(string[] input) =>
+        input.Select(l => l.Split(Separators, StringSplitOptions.TrimEntries))
+             .Select(p => p[1].Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                              .Intersect(p[2].Split(' ', StringSplitOptions.RemoveEmptyEntries))
+                              .Count())
+             .Where(n => n > 0)
+             .Sum(n => (int)Math.Pow(2, n - 1));
 }

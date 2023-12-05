@@ -1,6 +1,6 @@
 namespace AdventOfCode2023.Solutions.Day1;
 
-public static class SecondStar
+public static class SecondTaskSolution
 {
     private static readonly string[] DigitsSpelled = new[] { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 

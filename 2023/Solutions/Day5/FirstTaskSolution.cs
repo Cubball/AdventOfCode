@@ -35,7 +35,7 @@ public struct MappingInfo
     }
 }
 
-public static class FirstStar
+public static class FirstTaskSolution
 {
     public static long Initial(string[] input)
     {

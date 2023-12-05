@@ -2,7 +2,7 @@ using System.Buffers;
 
 namespace AdventOfCode2023.Solutions.Day1;
 
-public static class FirstStar
+public static class FirstTaskSolution
 {
     private static readonly SearchValues<char> DigitSearchValues = SearchValues.Create("123456789");
 

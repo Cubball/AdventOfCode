@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace AdventOfCode2023.Solutions.Day3;
 
-public static partial class FirstStar
+public static partial class FirstTaskSolution
 {
     private static readonly SearchValues<char> DigitSearchValues = SearchValues.Create(".0123456789");
 

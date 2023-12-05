@@ -16,7 +16,7 @@ public static class MappingInfoExtension
     }
 }
 
-public static class SecondStar
+public static class SecondTaskSolution
 {
     public static long Initial(string[] input)
     {

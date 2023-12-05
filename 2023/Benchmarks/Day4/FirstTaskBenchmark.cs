@@ -3,7 +3,7 @@ using BenchmarkDotNet.Attributes;
 namespace AdventOfCode2023.Benchmarks.Day4;
 
 [MemoryDiagnoser]
-public class FirstStar
+public class FirstTaskBenchmark
 {
     private string[] _input = null!;
 
@@ -16,12 +16,12 @@ public class FirstStar
     [Benchmark]
     public void Simple()
     {
-        Solutions.Day4.FirstStar.Simple(_input);
+        Solutions.Day4.FirstTaskSolution.Simple(_input);
     }
 
     [Benchmark]
     public void LINQ()
     {
-        Solutions.Day4.FirstStar.LINQ(_input);
+        Solutions.Day4.FirstTaskSolution.LINQ(_input);
     }
 }

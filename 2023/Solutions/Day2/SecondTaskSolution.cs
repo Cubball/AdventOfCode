@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace AdventOfCode2023.Solutions.Day2;
 
-public static partial class SecondStar
+public static partial class SecondTaskSolution
 {
     private static readonly char[] Separators = new[] { ' ', ':', ';', ',' };
 

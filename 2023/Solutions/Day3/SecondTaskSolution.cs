@@ -2,7 +2,7 @@ using System.Globalization;
 
 namespace AdventOfCode2023.Solutions.Day3;
 
-public static class SecondStar
+public static class SecondTaskSolution
 {
     public static int UsingSpans(string[] input)
     {
