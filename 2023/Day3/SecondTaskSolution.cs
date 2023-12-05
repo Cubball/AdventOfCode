@@ -1,6 +1,6 @@
 using System.Globalization;
 
-namespace AdventOfCode2023.Solutions.Day3;
+namespace AdventOfCode2023.Day3;
 
 public static class SecondTaskSolution
 {

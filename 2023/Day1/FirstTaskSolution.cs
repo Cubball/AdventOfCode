@@ -1,6 +1,6 @@
 using System.Buffers;
 
-namespace AdventOfCode2023.Solutions.Day1;
+namespace AdventOfCode2023.Day1;
 
 public static class FirstTaskSolution
 {

@@ -1,7 +1,7 @@
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-namespace AdventOfCode2023.Solutions.Day2;
+namespace AdventOfCode2023.Day2;
 
 public static partial class FirstTaskSolution
 {

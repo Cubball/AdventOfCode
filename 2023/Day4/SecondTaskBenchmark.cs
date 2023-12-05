@@ -1,6 +1,6 @@
 using BenchmarkDotNet.Attributes;
 
-namespace AdventOfCode2023.Benchmarks.Day4;
+namespace AdventOfCode2023.Day4;
 
 [MemoryDiagnoser]
 public class SecondTaskBenchmark
@@ -10,12 +10,12 @@ public class SecondTaskBenchmark
     [GlobalSetup]
     public void Setup()
     {
-        _input = File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\..\..\..\..\Inputs\Day4.txt"));
+        _input = File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\..\..\..\..\Day4\Input.txt"));
     }
 
     [Benchmark]
     public void Simple()
     {
-        Solutions.Day4.SecondTaskSolution.Simple(_input);
+        SecondTaskSolution.Simple(_input);
     }
 }

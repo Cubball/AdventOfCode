@@ -2,7 +2,7 @@ using System.Buffers;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-namespace AdventOfCode2023.Solutions.Day3;
+namespace AdventOfCode2023.Day3;
 
 public static partial class FirstTaskSolution
 {

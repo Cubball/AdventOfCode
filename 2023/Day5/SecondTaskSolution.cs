@@ -1,6 +1,6 @@
 using System.Globalization;
 
-namespace AdventOfCode2023.Solutions.Day5;
+namespace AdventOfCode2023.Day5;
 
 public static class MappingInfoExtension
 {

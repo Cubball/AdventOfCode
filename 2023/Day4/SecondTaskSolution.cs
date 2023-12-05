@@ -1,4 +1,4 @@
-namespace AdventOfCode2023.Solutions.Day4;
+namespace AdventOfCode2023.Day4;
 
 public static class SecondTaskSolution
 {
