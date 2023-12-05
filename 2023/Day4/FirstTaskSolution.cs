@@ -4,7 +4,7 @@ public static class FirstTaskSolution
 {
     private static readonly char[] Separators = new[] { ':', '|' };
 
-    public static int Simple(string[] input)
+    public static int Initial(string[] input)
     {
         var sum = 0;
         foreach (var line in input)

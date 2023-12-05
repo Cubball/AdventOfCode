@@ -4,7 +4,7 @@ namespace AdventOfCode2023.Day3;
 
 public static class SecondTaskSolution
 {
-    public static int UsingSpans(string[] input)
+    public static int Initial(string[] input)
     {
         var sum = 0;
         var numbers = new List<int>();

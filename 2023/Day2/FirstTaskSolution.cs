@@ -7,7 +7,7 @@ public static partial class FirstTaskSolution
 {
     private static readonly char[] Separators = new[] { ',', ';', ' ', ':' };
 
-    public static int Naive(string[] input)
+    public static int Initial(string[] input)
     {
         var sum = 0;
         foreach (var line in input)

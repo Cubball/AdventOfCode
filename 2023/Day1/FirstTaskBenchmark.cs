@@ -14,9 +14,9 @@ public class FirstTaskBenchmark
     }
 
     [Benchmark]
-    public void Naive()
+    public void Initial()
     {
-        FirstTaskSolution.Naive(_input);
+        FirstTaskSolution.Initial(_input);
     }
 
     [Benchmark]

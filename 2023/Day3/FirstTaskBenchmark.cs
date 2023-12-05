@@ -14,9 +14,9 @@ public class FirstTaskBenchmark
     }
 
     [Benchmark]
-    public void UsingSpans()
+    public void Initial()
     {
-        FirstTaskSolution.UsingSpans(_input);
+        FirstTaskSolution.Initial(_input);
     }
 
     [Benchmark]

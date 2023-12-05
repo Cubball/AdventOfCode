@@ -3,6 +3,6 @@
 using BenchmarkDotNet.Running;
 
 var input = File.ReadAllLines(@"Day1\Input.txt");
-Console.WriteLine(FirstTaskSolution.Naive(input));
+Console.WriteLine(FirstTaskSolution.Initial(input));
 
 BenchmarkRunner.Run<FirstTaskBenchmark>();

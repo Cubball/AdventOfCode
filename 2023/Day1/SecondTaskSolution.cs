@@ -4,7 +4,7 @@ public static class SecondTaskSolution
 {
     private static readonly string[] DigitsSpelled = new[] { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
-    public static int Naive(string[] input)
+    public static int Initial(string[] input)
     {
         var sum = 0;
         foreach (var line in input)

@@ -4,7 +4,7 @@ public static class SecondTaskSolution
 {
     private static readonly char[] Separators = new[] { ':', '|' };
 
-    public static int Simple(string[] input)
+    public static int Initial(string[] input)
     {
         var numberOfInstances = input.Select(_ => 1).ToArray();
         var cardNumber = 1;

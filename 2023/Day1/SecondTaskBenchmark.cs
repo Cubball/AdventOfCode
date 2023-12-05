@@ -14,9 +14,9 @@ public class SecondTaskBenchmark
     }
 
     [Benchmark]
-    public void Naive()
+    public void Initial()
     {
-        SecondTaskSolution.Naive(_input);
+        SecondTaskSolution.Initial(_input);
     }
 
     [Benchmark]

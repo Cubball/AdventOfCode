@@ -6,7 +6,7 @@ public static class FirstTaskSolution
 {
     private static readonly SearchValues<char> DigitSearchValues = SearchValues.Create("123456789");
 
-    public static int Naive(string[] input)
+    public static int Initial(string[] input)
     {
         var sum = 0;
         foreach (var line in input)
