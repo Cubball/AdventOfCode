@@ -21,6 +21,17 @@ public struct MappingInfo
         return source + offset;
     }
 
+    public readonly long? MapFromDestination(long destination)
+    {
+        if (destination < DestinationRangeStart || destination > DestinationRangeStart + RangeLength - 1)
+        {
+            return null;
+        }
+
+        var offset = SourceRangeStart - DestinationRangeStart;
+        return destination + offset;
+    }
+
     public static MappingInfo FromString(string line)
     {
         var parts = line.Split(' ', StringSplitOptions.RemoveEmptyEntries);

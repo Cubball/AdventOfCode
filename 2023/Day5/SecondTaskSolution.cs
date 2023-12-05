@@ -2,20 +2,6 @@ using System.Globalization;
 
 namespace AdventOfCode2023.Day5;
 
-public static class MappingInfoExtension
-{
-    public static long? MapFromDestination(this MappingInfo mappingInfo, long destination)
-    {
-        if (destination < mappingInfo.DestinationRangeStart || destination > mappingInfo.DestinationRangeStart + mappingInfo.RangeLength - 1)
-        {
-            return null;
-        }
-
-        var offset = mappingInfo.SourceRangeStart - mappingInfo.DestinationRangeStart;
-        return destination + offset;
-    }
-}
-
 public static class SecondTaskSolution
 {
     public static long Initial(string[] input)
