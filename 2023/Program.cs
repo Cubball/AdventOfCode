@@ -3,7 +3,7 @@
 using BenchmarkDotNet.Running;
 
 var input = File.ReadAllLines(@"Day6\Input.txt");
-Console.WriteLine(FirstTaskSolution.Initial(input));
+Console.WriteLine(SecondTaskSolution.Initial(input));
 // Console.WriteLine(FirstTaskSolution.UsingSpans(input));
 // Console.WriteLine(SecondTaskSolution.Initial(input));
 
