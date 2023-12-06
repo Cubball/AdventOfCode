@@ -7,5 +7,7 @@ using BenchmarkDotNet.Running;
 // Console.WriteLine(FirstTaskSolution.LINQ(input));
 // Console.WriteLine(FirstTaskSolution.UsingSpans(input));
 // Console.WriteLine(SecondTaskSolution.Initial(input));
+// Console.WriteLine(SecondTaskSolution.ReplaceInsteadOfSplit(input));
+// Console.WriteLine(SecondTaskSolution.UsingSpans(input));
 
-BenchmarkRunner.Run<FirstTaskBenchmark>();
+BenchmarkRunner.Run<SecondTaskBenchmark>();

@@ -15,6 +15,38 @@ public static class SecondTaskSolution
         return GetNumberOfWaysToWin(time, distance);
     }
 
+    public static long ReplaceInsteadOfSplit(string[] input)
+    {
+        var time = long.Parse(input[0][(input[0].IndexOf(':') + 1)..].Replace(" ", ""), CultureInfo.InvariantCulture);
+        var distance = long.Parse(input[1][(input[1].IndexOf(':') + 1)..].Replace(" ", ""), CultureInfo.InvariantCulture);
+        return GetNumberOfWaysToWin(time, distance);
+    }
+
+    public static long UsingSpans(string[] input)
+    {
+        var time = GetNumberFromSpan(input[0]);
+        var distance = GetNumberFromSpan(input[1]);
+        return GetNumberOfWaysToWin(time, distance);
+    }
+
+    private static long GetNumberFromSpan(ReadOnlySpan<char> line)
+    {
+        var number = 0L;
+        foreach (var character in line)
+        {
+            if (!char.IsDigit(character))
+            {
+                continue;
+            }
+
+            var digit = character - '0';
+            number *= 10;
+            number += digit;
+        }
+
+        return number;
+    }
+
     private static long GetNumberOfWaysToWin(long time, long distance)
     {
         var discriminantRoot = Math.Sqrt((time * time) - (4 * distance));
