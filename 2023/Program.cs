@@ -1,8 +1,8 @@
-﻿using AdventOfCode2023.Day7;
+﻿using AdventOfCode2023.Day8;
 
 using BenchmarkDotNet.Running;
 
-var input = File.ReadAllLines(@"Day7\Input.txt");
+var input = File.ReadAllLines(@"Day8\Input.txt");
 Console.WriteLine(SecondTaskSolution.Initial(input));
 // Console.WriteLine(FirstTaskSolution.LINQ(input));
 // Console.WriteLine(FirstTaskSolution.UsingSpans(input));
