@@ -1,13 +1,4 @@
-﻿using AdventOfCode2023.Day8;
+﻿using AdventOfCode2023.Day9;
 
-using BenchmarkDotNet.Running;
-
-var input = File.ReadAllLines(@"Day8\Input.txt");
-Console.WriteLine(SecondTaskSolution.Initial(input));
-// Console.WriteLine(FirstTaskSolution.LINQ(input));
-// Console.WriteLine(FirstTaskSolution.UsingSpans(input));
-// Console.WriteLine(SecondTaskSolution.Initial(input));
-// Console.WriteLine(SecondTaskSolution.ReplaceInsteadOfSplit(input));
-// Console.WriteLine(SecondTaskSolution.UsingSpans(input));
-
-// BenchmarkRunner.Run<SecondTaskBenchmark>();
+var input = File.ReadAllLines(@"Day9\Input.txt");
+Console.WriteLine(FirstTaskSolution.Initial(input));
