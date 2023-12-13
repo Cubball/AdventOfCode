@@ -1,4 +1,4 @@
-﻿using AdventOfCode2023.Day11;
+﻿using AdventOfCode2023.Day12;
 
-var input = File.ReadAllLines(@"Day11\Input.txt");
-Console.WriteLine(SecondTaskSolution.Initial(input));
+var input = File.ReadAllLines(@"Day12\Input.txt");
+Console.WriteLine(FirstTaskSolution.Initial(input));
