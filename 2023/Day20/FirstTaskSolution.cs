@@ -165,8 +165,6 @@ public static class FirstTaskSolution
             }
         }
 
-        Console.WriteLine($"Low pulses sent: {lowPulsesSent}");
-        Console.WriteLine($"High pulses sent: {highPulsesSent}");
         return lowPulsesSent * highPulsesSent;
     }
 }
